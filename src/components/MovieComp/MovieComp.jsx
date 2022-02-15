@@ -18,6 +18,7 @@ const MovieComp = (props) => {
                             <p className="ticket__current-price">$28.00</p>
                             <p className="ticket__old-price">$44.99</p>
                             <button className="ticket__buy-btn">Buy now</button>
+                            <button className="ticket__cart-btn">Add to Cart</button>
                         </div>
                     </div>
                 </div>

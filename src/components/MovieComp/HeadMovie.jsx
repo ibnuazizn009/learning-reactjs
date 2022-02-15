@@ -1,7 +1,7 @@
 import React from "react";
-import './HeaderMovie.css';
+import './HeadMovie.css';
 
-const HeaderMovie = () => {
+const HeadMovie = () => {
     return (
         <header id='header'>
             <div class='logo'>Logo Here</div>
@@ -15,9 +15,14 @@ const HeaderMovie = () => {
             <a href="#signin" class="sign-in">
                 <button class="btn-contact">Sign in</button>
             </a>
-            <i class="fa fa-shopping-cart" id="cart"></i>
+            <div className="wrap">
+                <div className="buttonCart" tabIndex={0}>
+                    <div className="cart" alt="cart"></div>
+                    <span className="price">$0</span>
+                </div>
+            </div>
         </header>
     )
 }
 
-export default HeaderMovie;
+export default HeadMovie;
