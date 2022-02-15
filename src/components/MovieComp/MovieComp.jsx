@@ -1,10 +1,9 @@
 import React from "react";
-import './YoutubeComp.css'
+import './MovieComp.css'
 
 // State Less Component
-const YoutubeComp = (props) => {
+const MovieComp = (props) => {
     return(
-        <body>
             <div className="hero-container">
                 <div className="main-container">
                     <div className="poster-container">
@@ -23,15 +22,14 @@ const YoutubeComp = (props) => {
                     </div>
                 </div>
 	        </div>
-        </body>
     )
 }
 
 // this for default props if in home page not use it
-YoutubeComp.defaultProps = {
+MovieComp.defaultProps = {
     title: 'No Title Found',
     slogan: 'Nothing',
     image: 'https://i.postimg.cc/vmkCLkbr/default-placeholder.png'
 }
 
-export default YoutubeComp;
+export default MovieComp;
