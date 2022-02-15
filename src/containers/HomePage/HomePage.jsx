@@ -1,12 +1,33 @@
 import React from "react";
-import HeaderList from "../HeadersList/HeaderList";
+// import HeaderList from "../HeadersList/HeaderList";
+import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 
 // Satate Full Component 
 class HomePage extends React.Component {
+    state = {
+        showComponent: true
+    }
+
+    componentDidMount(){
+        // setTimeout(() => {
+        //     this.setState({
+        //         showComponent: false
+        //     })
+        // }, 15000)
+    }
+
     render(){
         return (
             <div>
-                <HeaderList/>
+                {/* <HeaderList/> */}
+                <p>Life Cycle Component</p>
+                <hr />
+                {
+                    this.state.showComponent 
+                    ?
+                    <LifeCycleComp/> 
+                    : null
+                }
             </div>
         )
     }
