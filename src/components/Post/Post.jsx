@@ -20,7 +20,8 @@ const Post = (props) => {
                         <div className="footer-item">
                             <strong>John Doe</strong>
                             <span className="muted">2h ago</span>
-                            <span><a className="remove" href="#?" role={'button'} onClick={()=>props.remove(props.data.id)}>Remove</a></span>
+                            <span><a className="remove" href="#?" role={'button'} onClick={()=>props.remove(props.data.id)}>Remove</a><a className="update" href="#?" role={'button'} onClick={()=>props.update(props.data)}>Update</a></span>
+                            
                         </div>
                     </div>
                 </button>

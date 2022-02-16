@@ -117,13 +117,28 @@ p {
     color: black;
     border-radius: 8px;
     outline: none;
-    margin: 10px 0px 0px 160px;
+    margin: 10px 0px 0px 104px;
     text-decoration: none;
 }
 .remove:hover{
     cursor: pointer;
     background-color: cadetblue;
     color: aliceblue;
+}
+
+.update{
+  padding: 12px 11px;
+  background-color: coral;
+  color: black;
+  border-radius: 8px;
+  outline: none;
+  margin: 10px 0px 0px 10px;
+  text-decoration: none;
+}
+.update:hover{
+  cursor: pointer;
+  background-color: chocolate;
+  color: aliceblue;
 }
 
 /* Form Style */
@@ -203,7 +218,6 @@ fieldset {
 
 #contact button[type="submit"] {
   cursor: pointer;
-  width: 100%;
   border: none;
   background: #4CAF50;
   color: #FFF;
