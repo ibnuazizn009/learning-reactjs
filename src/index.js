@@ -1,25 +1,34 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+
+// Redux Library
+
+// import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
+// import counterReducer from './redux/reducer/globalReducer';
 
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomePage from './containers/HomePage/HomePage';
-import counterReducer from './redux/reducer/globalReducer';
 
 // Store #1
-const storeRedux = createStore(counterReducer)
+// const storeRedux = createStore(counterReducer)
 
 
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Provider store={storeRedux}>
+//       <HomePage />
+//     </Provider>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={storeRedux}>
       <HomePage />
-    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

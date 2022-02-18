@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import { connect } from 'react-redux';
+import { rootContext } from '../../HomePage/HomePage';
+// import { connect } from 'react-redux';
 import './LifeCycleComp.css';
 
 class LifeCycleComp extends Component {
@@ -59,16 +60,25 @@ class LifeCycleComp extends Component {
 
     render(){
         return(
-            <Fragment>
-            <button className="btn" onClick={this.changeCount}>Life Cycle Component {this.state.count}</button>
-            <hr />
+            <rootContext.Consumer>
+                {
+                    value => {
+                        return(
+                            <Fragment>
+                            <button className="btn" onClick={this.changeCount}>Life Cycle Component {this.state.count}</button>
+                            <hr />
 
-            <h3 className='product-total'>Total Product: ${this.props.order}</h3>
-            </Fragment>
+                            <h3 className='product-total'>Total Product: ${value.state.totalOrder}</h3>
+                            </Fragment>
+                        )
+                    }
+                }
+            </rootContext.Consumer>
         )
     }
 }
 
+// eslint-disable-next-line
 const mapsStateToProps = (state) =>{
     return{
         order: state.totalOrder
@@ -76,4 +86,4 @@ const mapsStateToProps = (state) =>{
 }
 
 
-export default connect(mapsStateToProps)(LifeCycleComp);
+export default LifeCycleComp;
