@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Post = (props) => {  
+const Post = (props) => {
+    let navigate = useNavigate()
+    function handleNavigate() {
+        navigate(`/detail-post/${props.data.id}`, {state: props.data})
+    }
     return (
             <div className="cards">
                 <button className='card'>
@@ -8,7 +13,7 @@ const Post = (props) => {
                         <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MDI3Nzg4NQ&ixlib=rb-1.2.1&q=85" width="288" alt='' />
                     </div>
                     <div className="card-header">
-                        <h3>{props.data.title}</h3>
+                        <h3 onClick={handleNavigate}>{props.data.title}</h3>
                     </div>
                     <div className="card-body">
                         <p>{props.data.body}</p>

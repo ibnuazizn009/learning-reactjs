@@ -157,7 +157,7 @@ button[class=btn-contact]:hover {
 
 .buttonCart{
   padding: 10px;
-  margin-left: -3rem;
+  margin: 10px 0 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;

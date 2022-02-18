@@ -1,38 +1,48 @@
-import React from "react";
-import BlogPost from "../BlogPost/BlogPost";
-import HeaderList from "../HeadersList/HeaderList";
-import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
+//Library
+import React, {Component, Fragment} from "react";
+import {BrowserRouter,Routes,Route,Link} from "react-router-dom";
+
+//Pages
+import BlogPost from "../pages/BlogPost/BlogPost";
+import DetailPost from "../pages/BlogPost/DetaiPost/DetailPost";
+import HeaderList from "../pages/HeadersList/HeaderList";
+import HelloComponent from "../pages/HeloPage/HelloComponent"
+import LifeCycleComp from "../pages/LifeCycleComp/LifeCycleComp";
+import MovieComponent from "../pages/MovieComponent/MovieComp";
+
+//Styles
+import './HomePage.css'
 
 // Satate Full Component 
-class HomePage extends React.Component {
+class HomePage extends Component {
     state = {
         showComponent: true
     }
 
-    componentDidMount(){
-        // setTimeout(() => {
-        //     this.setState({
-        //         showComponent: false
-        //     })
-        // }, 15000)
-    }
-
     render(){
         return (
-            <div>
-                <HeaderList/>
-                <p>Life Cycle Component</p>
-                <hr />
-                {
-                    this.state.showComponent 
-                    ?
-                    <LifeCycleComp/> 
-                    : null
-                }
-                <BlogPost/>
-            </div>
+            <BrowserRouter>
+                <Fragment>
+                    <div className="navigation">
+                        <Link to="/">Home</Link>
+                        <Link to="/life-cycle">Life Cycle Component</Link>
+                        <Link to="/blogpost">Blog Post</Link>
+                        <Link to="/movielist">Movie List</Link>
+                        <Link to="/moviecomp">Component Movie</Link>
+                    </div>
+                    <Routes>
+                            <Route path="/" element={<HelloComponent/>}/>
+                            <Route path="/life-cycle" element={<LifeCycleComp/>}/>
+                            <Route path="/blogpost" element={<BlogPost/>}/>
+                            <Route path="/detail-post/:id" element={<DetailPost/>}/>
+                            <Route path="/movielist" element={<HeaderList/>}/>
+                            <Route path="/moviecomp" element={<MovieComponent/>}/>
+                    </Routes>
+                </Fragment>
+            </BrowserRouter>
         )
     }
 }
+
 
 export default HomePage;

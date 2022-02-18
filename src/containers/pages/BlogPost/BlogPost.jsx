@@ -1,7 +1,14 @@
+// Library
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
-import Post from '../../components/Post/Post';
+// import { confirmAlert } from 'react-confirm-alert';
+
+// Components
+import Post from '../../../components/Post/Post';
+
+// Style
 import './BlogPost.css'
+
 
 class BlogPost extends Component {
     state = {
@@ -72,6 +79,16 @@ class BlogPost extends Component {
         if(this.state.isUpdate){
             this.putDataToAPI();
         }else{
+            alert('Data Added')
+            this.setState({
+                formBlogPost: {
+                    id: 1,
+                    title: '',
+                    body: '',
+                    userId: 1
+                },
+                isUpdate: false,
+            })
             this.postDatatoAPI();
         }
         // console.log('submited!!', this.state.formBlogPost['title']);
@@ -89,12 +106,13 @@ class BlogPost extends Component {
     handleRemove = (data) => {
         axios.delete(`http://localhost:3004/posts/${data}`)
             .then((res) => {
+                alert('Data Deleted!')
                 this.getPostAPI();
             })
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
+        // console.log('componentDidMount');
         this.getPostAPI();
     }
 
