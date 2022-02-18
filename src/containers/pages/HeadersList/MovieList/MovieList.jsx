@@ -1,30 +1,7 @@
 import React, { Component } from "react";
+import Counter from "./Counter";
 
 class MovieList extends Component {
-    state = {
-        order: 0
-    }
-    
-    handleCounterChange = (newValue) => {
-        this.props.onCounterChange(newValue);
-    }
-    
-    handleClickAdd = () => {
-        this.setState({
-            order: this.state.order + 28
-        }, () => {
-            this.handleCounterChange(this.state.order);
-        })
-    }
-
-    handleClickRemove = () => {
-        this.setState({
-            order: this.state.order - 28
-        }, () => {
-            this.handleCounterChange(this.state.order);
-        })
-    }
-
     render(){
         return(
                 <div className="hero-container">
@@ -41,8 +18,7 @@ class MovieList extends Component {
                                 <p className="ticket__current-price">$28.00</p>
                                 <p className="ticket__old-price">$44.99</p>
                                 <button className="ticket__buy-btn">Buy now</button>
-                                <button className="ticket__addcart-btn" onClick={this.handleClickAdd}>Add to Cart</button>
-                                <button className="ticket__removecart-btn" onClick={this.handleClickRemove}>Remove from Cart</button>
+                                <Counter onCounterChange = {(value)=> this.props.onCounterChange(value)}/>
                             </div>
                         </div>
                     </div>
