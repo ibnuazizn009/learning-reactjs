@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # About This Project
-This project use v6 `react-router` and `react-router-dom`
+This project use v6 `react-router` and `react-router-dom`.\
 For documentation about v6 react-router see (https://reactrouter.com/docs/en/v6/api)
 
 ## Available Scripts
