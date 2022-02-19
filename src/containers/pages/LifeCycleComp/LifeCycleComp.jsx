@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import { rootContext } from '../../HomePage/HomePage';
+import { globalConsumer } from '../../../context/context';
 // import { connect } from 'react-redux';
 import './LifeCycleComp.css';
 
@@ -20,11 +20,11 @@ class LifeCycleComp extends Component {
 
     componentDidMount () {
         console.log('componentDidMount')
-        // setTimeout(()=> {
-        //     this.setState({
-        //         count: 2
-        //     })
-        // }, 5000);
+        setTimeout(()=> {
+            this.setState({
+                count: 2
+            })
+        }, 5000);
     }
 
     shouldComponentUpdate(nextProps, nextState){
@@ -60,20 +60,12 @@ class LifeCycleComp extends Component {
 
     render(){
         return(
-            <rootContext.Consumer>
-                {
-                    value => {
-                        return(
-                            <Fragment>
-                            <button className="btn" onClick={this.changeCount}>Life Cycle Component {this.state.count}</button>
-                            <hr />
+            <Fragment>
+                <button className="btn" onClick={this.changeCount}>Life Cycle Component {this.state.count}</button>
+                <hr />
 
-                            <h3 className='product-total'>Total Product: ${value.state.totalOrder}</h3>
-                            </Fragment>
-                        )
-                    }
-                }
-            </rootContext.Consumer>
+                <h3 className='product-total'>Total Product: ${this.props.state.totalOrder}</h3>
+            </Fragment>
         )
     }
 }
@@ -86,4 +78,4 @@ const mapsStateToProps = (state) =>{
 }
 
 
-export default LifeCycleComp;
+export default globalConsumer(LifeCycleComp);

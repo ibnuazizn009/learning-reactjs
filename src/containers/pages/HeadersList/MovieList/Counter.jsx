@@ -1,45 +1,17 @@
 import React, {Component} from "react";
+import { globalConsumer } from "../../../../context/context";
 // import { connect } from "react-redux";
-import ActionType from "../../../../redux/reducer/globalActionType";
-import { rootContext } from "../../../HomePage/HomePage";
+import ActionType from '../../../../redux/reducer/globalActionType';
 class Counter extends Component{
     
-    // handleCounterChange = (newValue) => {
-    //     this.props.onCounterChange(newValue);
-    // }
-    
-    // handleClickAdd = () => {
-    //     this.setState({
-    //         order: this.state.order + 28
-    //     }, () => {
-    //         this.handleCounterChange(this.state.order);
-    //     })
-    // }
-
-    // handleClickRemove = () => {
-    //     this.setState({
-    //         order: this.state.order - 28
-    //     }, () => {
-    //         this.handleCounterChange(this.state.order);
-    //     })
-    // }
-
     render() {
+        // console.log(this);
         return (
-            <rootContext.Consumer>
-                {
-                    value => {
-                        console.log(value.state.totalOrder)
-                        return(
-                            <div className="counter">
-                                <button className="ticket__addcart-btn" onClick={()=>value.dispatch({type: 'counter/addOrder'})}>Add to Cart</button>
-                                <button className="ticket__removecart-btn" onClick={()=>value.dispatch({type: 'counter/minusOrder'})}>Remove from Cart</button>
-                            </div>
-                        )
-                    }
-                }
-            </rootContext.Consumer>
-        );
+            <div className="counter">
+                <button className="ticket__addcart-btn" onClick={()=>this.props.dispatch({type: 'counter/addOrder'})}>Add to Cart</button>
+                <button className="ticket__removecart-btn" onClick={()=>this.props.dispatch({type: 'counter/minusOrder'})}>Remove from Cart</button>
+            </div>   
+        )
     }
 }
 
@@ -61,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // export default connect(mapStateToProps,mapDispatchToProps)(Counter);
-export default Counter;
+export default globalConsumer(Counter);
